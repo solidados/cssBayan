@@ -61,19 +61,86 @@ p {
 }
 
 .accordion {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0px 20px;
     flex: 1 1 auto;
 }
 
+.accordion__container {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+/* --- I cound use margin, but want header and footer here for no reason --- */
 .header__blank {
     width: 100%;
     height: 100px;
-    background-color: blue; /* TODO: remove when done */
+    background-color: #0359d9; /* TODO: remove when done */
 }
 .footer__blank {
     width: 100%;
     height: 100px;
-    background-color: blue; /* TODO: remove when done */
+    background-color: #0359d9; /* TODO: remove when done */
+}
+/* --- my wants ended here ))) --- */
+
+.accordion__title {
+    padding: 20px 0;
+}
+.accordion__list {
+    min-width: 600px;
+    font-size: 0.9em;
+}
+.accordion__link {
+    display: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0px;
+    background: #f4f4e7;
+    border-bottom: 1px solid #cccccc;
+    text-decoration: none;
+
+    font-size: 1.4em;
+    color: #0359d9;
+    cursor: pointer;
+}
+.list__item {
+    position: relative;
+}
+.accordion__link::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 0;
+    color: #090909;
+    cursor: pointer;
+}
+
+.accordion__link .open {
+    display: block;
+}
+.accordion__content {
+    display: none;
+    padding: 20px 0;
+    text-align: center;
+    background: #f4f4e7;
+    font-size: 1em;
+}
+.accordion__content img {
+    width: 300px;
+}
+
+.accordion__content:hover {
+    display: block;
+}
+.accordion li a {
+    display: block;
+    padding: 10px 0px;
+    background: #f4f4e7;
+    border-bottom: 1px solid #cccccc;
+    text-decoration: none;
+
+    font-size: 1.4em;
+    color: #0359d9;
 }
