@@ -99,64 +99,42 @@ p {
     position: relative;
 }
 
-.tab__input {
-}
-
 .tab__title {
     display: block;
-    padding: 10px 0px;
     background: #f4f4e7;
-    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
     text-decoration: none;
 
     font-size: 1.4em;
     color: #0359d9;
+    transform: translateX(-1rem);
+    transition: all 0.5s ease-in-out;
 }
 
-.tab__title::after {
-    /* display: none; */
-    content: "+";
-    position: absolute;
-    right: 0;
-    margin-top: 15px;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 0;
-    color: #090909;
-    cursor: pointer;
-}
-.tab__title:hover{
+.tab__title img {
     display: block;
-    cursor: pointer;
-}
-
-.tab__item-content {
-    display: none;
-    padding: 20px 0;
-    text-align: center;
-    background: #f4f4e7;
-    font-size: 1em;
-}
-.tab__item-content:hover {
-    display: block
-}
-.tab__img {
+    margin: 0 auto;
+    margin-bottom: 20px;
     width: 300px;
 }
 
+span {
+    opacity: 0;
+    display: inline-block;
 
-
-.tab__title span {
-    /* opacity: 0; */
-    content: "+";
-    position: absolute;
-    right: 0;
-    margin-top: 15px;
-    font-size: 28px;
+    font-size: 1.3em;
     font-weight: 700;
-    line-height: 0;
     color: #090909;
-    cursor: pointer;
+}
+
+.tab__item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4em 0;
+    text-align: center;
+    background: #f4f4e7;
+    font-size: 1em;
 }
 
 .accordion__content {
@@ -166,6 +144,34 @@ p {
     background: #f4f4e7;
     font-size: 1em;
 }
-.accordion__content img {
-    width: 300px;
+
+/* ! --- actions --- */
+.tab__title:hover {
+    transition: all 0.5s linear;
+    transform: translateX(1rem);
+    color: #090909;
+    cursor: pointer;
+}
+.tab__input + .tab__title > img {
+    display: none;
+}
+.tab__input:checked + .tab__title > img {
+    display: block;
+    transition: all 0.5s ease;
+    transform: rotate(360deg);
+}
+.tab__input:hover + .tab__title > img {
+    display: block;
+    transform: rotate(-180deg);
+    transition: all 0.5s linear;
+}
+
+.tab__input:checked + .tab__title span {
+    transform: rotate(135deg);
+    transition: all 0.3s linear;
+}
+.tab__input:hover + .tab__title span {
+    opacity: 1;
+    transform: rotate(135deg);
+    transition: all 0.3s linear;
 }
