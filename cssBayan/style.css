@@ -1,5 +1,4 @@
 /* ! --- Default styles (reset) --- */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +20,7 @@ body {
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 :focus,
 :active {
@@ -48,7 +48,9 @@ p {
     width: auto;
     overflow-wrap: break-word;
 }
+/* * --- end of Default styles (reset) --- */
 
+/* ! --- General wrapper --- */
 .wrapper {
     width: 100%;
     min-height: 100%;
@@ -60,15 +62,6 @@ p {
     background: #f4f4e7;
 }
 
-.accordion {
-    flex: 1 1 auto;
-}
-
-.accordion__container {
-    max-width: 40%;
-    margin: 0 auto;
-    padding: 0px 20px;
-}
 /* --- I cound use margin, but want header and footer here for no reason --- */
 .header__blank {
     width: 100%;
@@ -82,17 +75,35 @@ p {
 }
 /* --- my wants ended here ))) --- */
 
-.accordion__title {
-    padding: 20px 0;
+/* ! --- Main content --- */
+.accordion {
+    flex: 1 1 auto;
 }
-.accordion__list {
+
+.accordion__container {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.accordion__title {
+    padding: 50px 0 20px;
+}
+
+/* * --- List of tabs --- */
+.accordion__tabs {
     min-width: 600px;
     font-size: 0.9em;
 }
-.accordion__link {
-    display: none;
-    width: 100%;
-    text-align: left;
+.tab__item {
+    position: relative;
+}
+
+.tab__input {
+}
+
+.tab__title {
+    display: block;
     padding: 10px 0px;
     background: #f4f4e7;
     border-bottom: 1px solid #cccccc;
@@ -100,12 +111,43 @@ p {
 
     font-size: 1.4em;
     color: #0359d9;
+}
+
+.tab__title::after {
+    /* display: none; */
+    content: "+";
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 0;
+    color: #090909;
     cursor: pointer;
 }
-.list__item {
-    position: relative;
+.tab__title:hover{
+    display: block;
+    cursor: pointer;
 }
-.accordion__link::after {
+
+.tab__item-content {
+    display: none;
+    padding: 20px 0;
+    text-align: center;
+    background: #f4f4e7;
+    font-size: 1em;
+}
+.tab__item-content:hover {
+    display: block
+}
+.tab__img {
+    width: 300px;
+}
+
+
+
+.tab__title span {
+    /* opacity: 0; */
     content: "+";
     position: absolute;
     right: 0;
@@ -117,9 +159,6 @@ p {
     cursor: pointer;
 }
 
-.accordion__link .open {
-    display: block;
-}
 .accordion__content {
     display: none;
     padding: 20px 0;
@@ -129,18 +168,4 @@ p {
 }
 .accordion__content img {
     width: 300px;
-}
-
-.accordion__content:hover {
-    display: block;
-}
-.accordion li a {
-    display: block;
-    padding: 10px 0px;
-    background: #f4f4e7;
-    border-bottom: 1px solid #cccccc;
-    text-decoration: none;
-
-    font-size: 1.4em;
-    color: #0359d9;
 }
