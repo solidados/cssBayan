@@ -86,7 +86,7 @@ p {
     min-width: 40%;
     font-size: 0.9em;
 }
-`
+
 .accordion__tabs:hover p {
     color: #090909;
 }
