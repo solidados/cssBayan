@@ -27,9 +27,6 @@ a:visited {
     text-decoration: none;
     color: inherit;
 }
-a:hover {
-    text-decoration: none;
-}
 ul li {
     list-style: none;
 }
@@ -88,11 +85,6 @@ p {
     min-width: 40%;
 }
 
-.accordion__tabs:hover p {
-    color: #090909;
-    transition: all 0.8s ease;
-}
-
 .tab__title {
     background: #f4f4e7;
     text-decoration: none;
@@ -127,9 +119,36 @@ span {
 }
 
 /* ! --- actions --- */
-.tab__title:hover {
-    color: #090909;
-    cursor: pointer;
+
+/* TODO: add hover actions for mobile devices */
+@media (any-hover: hover) {
+    a:hover {
+        text-decoration: none;
+    }
+    .accordion__tabs:hover p {
+        color: #090909;
+        transition: all 0.8s ease;
+    }
+    .tab__title:hover {
+        color: #090909;
+        cursor: pointer;
+    }
+    .tab__item:hover .tab__img {
+        max-height: 18.75rem;
+        margin: 0 auto;
+        margin-bottom: 1.35rem;
+
+        transition: all 0.8s;
+        transform: rotate(-135deg);
+    }
+    .tab__input:hover + .tab__title span {
+        opacity: 1;
+        transform: rotate(135deg);
+        transition: all 0.3s ease;
+    }
+    .accordion__tabs:hover .tab__title span {
+        opacity: 1;
+    }
 }
 
 .tab__input + .tab__title > img {
@@ -148,14 +167,6 @@ span {
     transition: all 0.8s ease;
     transform: rotate(360deg);
 }
-.tab__item:hover .tab__img {
-    max-height: 18.75rem;
-    margin: 0 auto;
-    margin-bottom: 1.35rem;
-
-    transition: all 0.8s;
-    transform: rotate(-135deg);
-}
 .tab__input:checked + .tab__title p {
     color: #090909;
 }
@@ -168,18 +179,9 @@ span {
 .tab__title:active {
     cursor: help;
 }
-
 .tab__input:checked + .tab__title span {
     transform: rotate(135deg);
     transition: all 0.3s ease;
-}
-.tab__input:hover + .tab__title span {
-    opacity: 1;
-    transform: rotate(135deg);
-    transition: all 0.3s ease;
-}
-.accordion__tabs:hover .tab__title span {
-    opacity: 1;
 }
 
 /* ! --- media queries --- */
@@ -251,7 +253,7 @@ span {
 }
 
 @media only screen and (min-width: 1024px) {
-        .accordion__container {
+    .accordion__container {
         max-width: 60vw;
     }
     .accordion__title {
