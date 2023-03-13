@@ -78,6 +78,7 @@ p {
 
 .accordion__title {
     padding: 3rem 0 1.4rem;
+    user-select: none;
 }
 
 /* * --- List of tabs --- */
@@ -103,6 +104,7 @@ span {
 }
 .tab__img {
     display: block;
+    user-select: none;
 }
 
 .tab__item-content {
